@@ -1,8 +1,12 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This file consists of two functions: makeCacheMatrix & cacheSolve
+## makeCacheMatrix functions creates an environment for values to be cached 
+## so that they can be accessed via other environments. This is helpful in storing
+## results from time expensive oeprations.  
 
-## Write a short comment describing this function
-
+## Function: makeCacheMatrix
+## Preconditions: Input Matrix assumed to be 'invertible'
+## Postconditions: Getters/Setters to matrix/it's inverted form that can be accessed 
+## 		  via other other environments
 makeCacheMatrix <- function(x = matrix()) {
 invertedMatrix <- NULL
   
@@ -25,8 +29,10 @@ invertedMatrix <- NULL
 }
 
 
-## Write a short comment describing this function
-
+## Function: cacheSolve 
+## Preconditions: makeCacheMatrix handler. Defaulted to 1x1, but can be set using makeCacheMatrix's setMatrix.
+## Postconditions: Inverted form of the matrix. Not cached for first call. Cached for subsequent calls. 
+## 		  via other other environments
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
         invMtrx <- x$getInvertedMatrix()
